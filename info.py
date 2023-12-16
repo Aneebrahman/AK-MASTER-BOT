@@ -39,6 +39,8 @@ SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://MONGOO:MONGOO@cluster0.rh6p7y3.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "MONGOO:MONGOO")
+DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://MONGOO:MONGOO@cluster0.rh6p7y3.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_NAME2 = environ.get('DATABASE_NAME2', "MONGOO:MONGOO")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # FSUB
