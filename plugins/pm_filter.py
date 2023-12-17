@@ -37,7 +37,13 @@ BUTTONS = {}
 SPELL_CHECK = {}
 LANGUAGES = ["mal", "tam", "eng", "hin", "tel", "kan"]
 
+DELETE_TXT = """𝗪𝗮𝗿𝗻𝗶𝗻𝗴 ⚠️
 
+𝖥𝗂𝗅𝖾𝗌 𝖲𝖾𝗇𝖽 𝖶𝗂𝗅𝗅 𝖡𝖾 𝖣𝖾𝗅𝖾𝗍𝖾𝖽 𝖠𝖿𝗍𝖾𝗋 5 𝖬𝗂𝗇𝗎𝗍𝖾𝗌 𝖳𝗈 𝖠𝗏𝗈𝗂𝖽 𝖢𝗈𝗉𝗒𝗋𝗂𝗀𝗁𝗍. 𝖲𝗈 𝖲𝖺𝗏𝖾 𝖳𝗁𝖾 𝖥𝗂𝗅𝖾 𝖳𝗈 𝖲𝖺𝗏𝖾𝖽 𝖬𝖾𝗌𝗌𝖺𝗀𝖾𝗌
+
+അറിയിപ്പ് ⚠️
+
+അയച്ച ഫയലുകൾ കോപ്പി റൈറ്റ് ഒഴിവാക്കാൻ വേണ്ടി 5 മിനിറ്റിനു ശേഷം ഡിലീറ്റ് ചെയ്യുന്നതാണ്. അതുകൊണ്ട് ഫയൽ സേവ്ഡ് മെസ്സേജ്സിലേക്ക് മാറ്റേണ്ടതാണ്."""
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
@@ -691,13 +697,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                await client.send_cached_media(
+                f = await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
+                ok = await f.reply(DELETE_TXT)
+                await asyncio.sleep(300)
+                await f.delete()
+                await ok.delete()
+                return
+                
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
@@ -727,12 +739,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         await query.answer()
-        await client.send_cached_media(
+        f = await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False
         )
+        ok = await f.reply(DELETE_TXT)
+        await asyncio.sleep(300)
+        await f.delete()
+        await ok.delete()
+        return
+    
     elif query.data.startswith("killfilesdq"):
         ident, keyword = query.data.split("#")
         await query.message.edit_text(f"<b>Fᴇᴛᴄʜɪɴɢ Fɪʟᴇs ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} ᴏɴ DB... Pʟᴇᴀsᴇ ᴡᴀɪᴛ...</b>")
