@@ -28,7 +28,7 @@ PICS = (environ.get('PICS' ,'https://graph.org/file/df17e1fad3d856caf5df8.jpg ht
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6467032417 683891378 6105017520 5845960615').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001833339939 -1002038316280').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002075747729').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_grp = environ.get('AUTH_GROUP')
@@ -53,7 +53,7 @@ REQ_CHANNEL = (int(REQ_CHANNEL) if REQ_CHANNEL and id_pattern.search(REQ_CHANNEL
 JOIN_REQS_DB = environ.get("JOIN_REQS_DB", DATABASE_URI)
 
 # Others
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001857768683'))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001997589299'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'MLZ_BOTZ_SUPPORT')
 MAX_B_TN = environ.get("MAX_B_TN", "8")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "False")), False)
