@@ -147,3 +147,16 @@ class Database:
 
 
 db = Database(DATABASE_URI, DATABASE_NAME)
+
+class Database2:
+
+    def __init__(self, uri, database_name):
+        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
+        self.db2 = self._client[database_name] 
+        self.col2 = self.db2.users
+
+    async def get_db2_size(self):
+        return (await self.db1.command("dbstats"))['dataSize']
+
+
+db2 = Database2(DATABASE_URI2, DATABASE_NAME2)
