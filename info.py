@@ -37,7 +37,7 @@ support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1001693527538')
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://chokli:chokli@cluster0.skwcbou.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://nairobi:nairobi@cluster0.r1tusrg.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "chokli:chokli")
 DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://leoautofilter:leoautofilter@cluster0.ifd4au5.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME2 = environ.get('DATABASE_NAME2', "leoautofilter:leoautofilter")
