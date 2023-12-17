@@ -7,7 +7,7 @@ from pymongo.errors import DuplicateKeyError
 from umongo import Instance, Document, fields
 from motor.motor_asyncio import AsyncIOMotorClient
 from marshmallow.exceptions import ValidationError
-from info import DATABASE_URI2, DATABASE_NAME2, COLLECTION_NAME, USE_CAPTION_FILTER, MAX_B_TN
+from info import DATABASE_URI2, DATABASE_NAME2, COLLECTION_NAME, MAX_B_TN, USE_CAPTION_FILTER
 from utils import get_settings, save_group_settings
 
 logger = logging.getLogger(__name__)
@@ -25,8 +25,7 @@ class Media(Document):
     file_name = fields.StrField(required=True)
     file_size = fields.IntField(required=True)
     file_type = fields.StrField(allow_none=True)
-    mime_type = fields.StrField(allow_none=True)
-    caption = fields.StrField(allow_none=True)
+    mime_type = fields.StrField(allow_none=True)    
 
     class Meta:
         indexes = ('$file_name', )
@@ -84,7 +83,7 @@ async def get_bad_files(query, file_type=None, filter=False):
         return []
 
     if USE_CAPTION_FILTER:
-        filter = {'$or': [{'file_name': regex}, {'caption': regex}]}
+        filter = {'file_name': regex}
     else:
         filter = {'file_name': regex}
 
