@@ -156,7 +156,7 @@ class Database2:
         self.col2 = self.db2.users
 
     async def get_db2_size(self):
-        return (await self.db1.command("dbstats"))['dataSize']
+        return (await self.db2.command("dbstats"))['dataSize']
 
 
 db2 = Database2(DATABASE_URI2, DATABASE_NAME2)
