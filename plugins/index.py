@@ -158,7 +158,7 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                         reply_markup=reply)
                 if message.empty:
                     deleted += 1
-                    await asyncio.sleep(0.2)
+                    await asyncio.sleep(0.1)
                     continue
                 elif not message.media:
                     no_media += 1
@@ -173,7 +173,7 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                 media.file_type = message.media.value
                 media.caption = message.caption
                 aynav, vnay = await save_file(media)
-                await asyncio.sleep(0.2)
+                await asyncio.sleep(0.1)
                 if aynav:
                     total_files += 1
                 elif vnay == 0:
