@@ -83,7 +83,7 @@ async def get_bad_files(query, file_type=None, filter=False):
         return []
 
     if USE_CAPTION_FILTER:
-        filter = {'file_name': regex}
+        filter = {'$or': [{'file_name': regex}, {'caption': regex}]}
     else:
         filter = {'file_name': regex}
 
