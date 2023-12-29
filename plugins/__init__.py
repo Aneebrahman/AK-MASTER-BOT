@@ -1,6 +1,4 @@
 from aiohttp import web
-from plugins.webcode import routes
-
 
 routes = web.RouteTableDef()
 
