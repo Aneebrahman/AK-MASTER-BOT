@@ -9,6 +9,7 @@ logging.getLogger("imdbpy").setLevel(logging.ERROR)
 
 import os 
 import sys
+from os import environ
 
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
@@ -24,7 +25,10 @@ from pyrogram import types
 import time
 from datetime import date, datetime 
 import pytz
-PORT = "8080"
+
+from aiohttp import web
+from plugins import web_server
+PORT = environ.get("PORT", "8080")
 
 class Bot(Client):
 
@@ -70,6 +74,11 @@ class Bot(Client):
         time = now.strftime("%I:%M:%S %p")
         await self.send_message(chat_id=LOG_CHANNEL, text=f"@{me.username} Rᴇsᴛᴀʀᴛᴇᴅ !\n\n📅 Dᴀᴛᴇ : {today}\n⏰ Tɪᴍᴇ : {time}\n🌐 Tɪᴍᴇᴢᴏɴᴇ : Asia/Kolkata")
         #logging.info(LOG_STR)
+    
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, PORT).start()
 
     async def stop(self, *args):
         await super().stop()
