@@ -58,6 +58,7 @@ async def answer(bot, query):
                                                   offset=offset)
 
     for file in files:
+        file = file[0]
         title=file.file_name
         size=get_size(file.file_size)
         f_caption=file.file_name
