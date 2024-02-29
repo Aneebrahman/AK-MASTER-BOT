@@ -67,7 +67,7 @@ async def answer(bot, query):
                                                        file_size='' if size is None else size,
                                                        file_caption='' if f_caption is None else f_caption)
             except Exception as e:
-                logger.exception(e)
+                await message.reply(e)
                 f_caption=f_caption
         if f_caption is None:
             f_caption = f"{file.file_name}"
