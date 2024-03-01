@@ -939,7 +939,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         used_dbSize = (stats['dataSize']/(1024*1024))+(stats['indexSize']/(1024*1024))
         free_dbSize = 512-used_dbSize
         if query.from_user.id in ADMINS:
-            await query.message.edit_text(text=script.STATUS_TXT.format(total, users, chats, monsize, free), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
+            await query.message.edit_text(text=script.STATUS_TXT.format(total, users, chats, round(used_dbSize, 2), round(free_dbSize, 2)), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
         else:
             await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIᴛꜱ ᴏɴʟʏ ғᴏʀ ᴍʏ ADMINS\n\n©ᴍʟᴢ ʙᴏᴛᴢ", show_alert=True)
             await query.message.edit_text(text="നോക്കി നിന്നോ ഇപ്പോൾ കിട്ടും 😏", reply_markup=reply_markup)
@@ -962,7 +962,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         used_dbSize = (stats['dataSize']/(1024*1024))+(stats['indexSize']/(1024*1024))
         free_dbSize = 512-used_dbSize
         if query.from_user.id in ADMINS:
-            await query.message.edit_text(text=script.STATUS_TXT.format(total, users, chats, monsize, free), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
+            await query.message.edit_text(text=script.STATUS_TXT.format(total, users, chats, round(used_dbSize, 2), round(free_dbSize, 2)), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
         else:
             await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIᴛꜱ ᴏɴʟʏ ғᴏʀ ᴍʏ ADMINS\n\n©ᴍʟᴢ ʙᴏᴛᴢ", show_alert=True)
             await query.message.edit_text(text="umfi അല്ലെ 😂 എത്ര നോക്കി നിന്നാലും നിനക്ക് കാണാൻ പറ്റില്ല 😎", reply_markup=reply_markup)
