@@ -108,10 +108,10 @@ This module only works for my admins
     STATUS_TXT = """📂 Tᴏᴛᴀʟ Fɪʟᴇꜱ: <code>{}</code>
 👤 Tᴏᴛᴀʟ Uꜱᴇʀꜱ: <code>{}</code>
 ♻️ Tᴏᴛᴀʟ Gʀᴏᴜᴩꜱ: <code>{}</code>
-🗃️ DB1 Sᴛᴏʀᴀɢᴇ: <code>{}</code>
-🆓 Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>{}</code>
-💽 DB2 Sᴛᴏʀᴀɢᴇ: <code>{}</code>
-💿 Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>{}</code>"""
+🗃️ DB1 Sᴛᴏʀᴀɢᴇ: <code>MB{}</code>
+🆓 Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>MB{}</code>
+💽 DB2 Sᴛᴏʀᴀɢᴇ: <code>MB{}</code>
+💿 Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>MB{}</code>"""
     
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
