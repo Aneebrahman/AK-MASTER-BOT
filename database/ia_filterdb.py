@@ -102,6 +102,20 @@ async def get_bad_files(query, file_type=None, filter=False):
 
     return files, total_results
 
+async def delete_files_below_threshold(db, threshold_size_mb: int = 50, batch_size: int = 20, chat_id: int = None, message_id: int = None):
+    cursor = Media.find({"file_size": {"$lt": threshold_size_mb * 1024 * 1024}}).limit(batch_size)
+    deleted_count = 0
+    
+    async for document in cursor:
+        try:
+            await Media.collection.delete_one({"_id": document["file_id"]})
+            deleted_count += 1
+            print(f'Deleted file: {document["file_name"]}')
+        except Exception as e:
+            print(f'Error deleting file: {document["file_name"]}, {e}')
+    
+    return deleted_count
+    
 async def get_search_results(chat_id, query, file_type=None, max_results=10, offset=0, filter=False):
     """For given query return (results, next_offset)"""
     if chat_id is not None:
