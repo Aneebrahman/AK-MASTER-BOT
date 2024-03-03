@@ -552,3 +552,27 @@ async def deletemultiplefiles(bot, message):
         reply_markup=InlineKeyboardMarkup(btn),
         parse_mode=enums.ParseMode.HTML
     )
+
+@Client.on_message(filters.command("deletesmallfiles") & filters.user(ADMINS))
+async def process_command(client, message):
+    chat_id = message.chat.id
+    processing_message = await message.reply_text("<b>Processing: Deleting files...</b>")
+    
+    total_files_deleted = 0
+    batch_size = 250
+
+    while True:
+        deleted_files = await delete_files_below_threshold(db, threshold_size_mb=50, batch_size=batch_size)
+        
+        if deleted_files == 0:
+            break
+
+        total_files_deleted += deleted_files
+
+        # Update the message to show progress
+        progress_message = f'<b>Processing: Deleted {total_files_deleted} files in {total_files_deleted // batch_size} batches.</b>'
+        await processing_message.edit_text(progress_message)
+        await asyncio.sleep(3)
+
+    print(f'Total files deleted: {total_files_deleted}')
+    await processing_message.edit_text(f'<b>Deletion complete: Deleted {total_files_deleted} files.</b>')
