@@ -106,12 +106,23 @@ This module only works for my admins
 • /broadcast - <code>to broadcast a message to all users</code>"""
     
     STATUS_TXT = """📂 Tᴏᴛᴀʟ Fɪʟᴇꜱ: <code>{}</code>
-👤 Tᴏᴛᴀʟ Uꜱᴇʀꜱ: <code>{}</code>
-♻️ Tᴏᴛᴀʟ Gʀᴏᴜᴩꜱ: <code>{}</code>
-🗃️ DB1 Sᴛᴏʀᴀɢᴇ: <code>{}</code>
-🆓 Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>{}</code>
-💽 DB2 Sᴛᴏʀᴀɢᴇ: <code>{}</code>
-💿 Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>{}</code>"""
+
+𝗗𝗕 𝟭
+𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌         - <code>{}</code>
+𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB
+
+𝗗𝗕 𝟮
+𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌         - <code>{}</code>
+𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB
+
+𝗗𝗕 𝟯
+𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌         - <code>{}</code>
+𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB
+
+𝗗𝗕 𝟰
+📦 𝖴𝗌𝖾𝗋𝗌            - <code>{}</code>
+🖥️ 𝖢𝗁𝖺𝗍𝗌            - <code>{}</code>
+𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB"""
     
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
