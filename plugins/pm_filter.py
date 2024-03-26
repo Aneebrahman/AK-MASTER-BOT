@@ -17,7 +17,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, send_all
 from database.users_chats_db import db
-from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
+from database.ia_filterdb import Media2, Media3, Media4, db as clientDB, db2 as clientDB2, db3 as clientDB3, db4 as clientDB4, get_file_details, get_search_results, get_bad_files
 from database.filters_mdb import (
     del_all,
     find_filter,
@@ -754,29 +754,53 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.startswith("killfilesdq"):
         ident, keyword = query.data.split("#")
         await query.message.edit_text(f"<b>Fᴇᴛᴄʜɪɴɢ Fɪʟᴇs ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} ᴏɴ DB... Pʟᴇᴀsᴇ ᴡᴀɪᴛ...</b>")
-        files, total = await get_bad_files(keyword)
-        await query.message.edit_text(f"<b>Fᴏᴜɴᴅ {total} Fɪʟᴇs ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} !\n\nFɪʟᴇ ᴅᴇʟᴇᴛɪᴏɴ ᴘʀᴏᴄᴇss ᴡɪʟʟ sᴛᴀʀᴛ ɪɴ 5 sᴇᴄᴏɴᴅs!</b>")
+        files_media1, files_media2, files_media3, total_media = await get_bad_files(keyword)        
+        await query.message.edit_text(f"<b>Fᴏᴜɴᴅ {total_media} Fɪʟᴇs ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} !\n\nFɪʟᴇ ᴅᴇʟᴇᴛɪᴏɴ ᴘʀᴏᴄᴇss ᴡɪʟʟ sᴛᴀʀᴛ ɪɴ 5 sᴇᴄᴏɴᴅs!</b>")
         await asyncio.sleep(5)
         deleted = 0
         async with lock:
             try:
-                for file in files:
+                # Delete files from Media collection
+                for file in files_media1:
                     file_ids = file.file_id
                     file_name = file.file_name
-                    result = await Media.collection.delete_one({
+                    result = await Media2.collection.delete_one({
                         '_id': file_ids,
                     })
                     if result.deleted_count:
                         logger.info(f'Fɪʟᴇ Fᴏᴜɴᴅ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword}! Sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {file_name} ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ.')
                     deleted += 1
-                    if deleted % 20 == 0:
+                    if deleted % 100 == 0:
                         await query.message.edit_text(f"<b>Pʀᴏᴄᴇss sᴛᴀʀᴛᴇᴅ ғᴏʀ ᴅᴇʟᴇᴛɪɴɢ ғɪʟᴇs ғʀᴏᴍ DB. Sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {str(deleted)} ғɪʟᴇs ғʀᴏᴍ DB ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} !\n\nPʟᴇᴀsᴇ ᴡᴀɪᴛ...</b>")
+                # Delete files from Mediaa collection
+                for file in files_media2:
+                    file_ids = file.file_id
+                    file_name = file.file_name
+                    result = await Media3.collection.delete_one({
+                        '_id': file_ids,
+                    })
+                    if result.deleted_count:
+                        logger.info(f'Fɪʟᴇ Fᴏᴜɴᴅ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword}! Sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {file_name} ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ.')
+                    deleted += 1
+                    if deleted % 100 == 0:
+                        await query.message.edit_text(f"<b>Pʀᴏᴄᴇss sᴛᴀʀᴛᴇᴅ ғᴏʀ ᴅᴇʟᴇᴛɪɴɢ ғɪʟᴇs ғʀᴏᴍ DB. Sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {str(deleted)} ғɪʟᴇs ғʀᴏᴍ DB ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} !\n\nPʟᴇᴀsᴇ ᴡᴀɪᴛ...</b>")
+                for file in files_media3:
+                    file_ids = file.file_id
+                    file_name = file.file_name
+                    result = await Media4.collection.delete_one({
+                        '_id': file_ids,
+                    })
+                    if result.deleted_count:
+                        logger.info(f'Fɪʟᴇ Fᴏᴜɴᴅ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword}! Sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {file_name} ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ.')
+                    deleted += 1
+                    if deleted % 100 == 0:
+                        await query.message.edit_text(f"<b>Pʀᴏᴄᴇss sᴛᴀʀᴛᴇᴅ ғᴏʀ ᴅᴇʟᴇᴛɪɴɢ ғɪʟᴇs ғʀᴏᴍ DB. Sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {str(deleted)} ғɪʟᴇs ғʀᴏᴍ DB ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} !\n\nPʟᴇᴀsᴇ ᴡᴀɪᴛ...</b>")                
             except Exception as e:
-                logger.exception(e)
+                logger.exception
                 await query.message.edit_text(f'Eʀʀᴏʀ: {e}')
             else:
                 await query.message.edit_text(f"<b>Pʀᴏᴄᴇss Cᴏᴍᴘʟᴇᴛᴇᴅ ғᴏʀ ғɪʟᴇ ᴅᴇʟᴇᴛɪᴏɴ !\n\nSᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {str(deleted)} ғɪʟᴇs ғʀᴏᴍ DB ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword}.</b>")
-                
+            
     elif query.data == "pages":
         await query.answer()
     elif query.data.startswith("send_fall"):
@@ -932,18 +956,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         reply_markup = InlineKeyboardMarkup(buttons)
-        total = await Media.count_documents()
-        users = await db.total_users_count()
-        chats = await db.total_chat_count()
-        monsize = await db.get_db_size()
-        free = 536870912 - monsize
-        monsize = get_size(monsize)
-        free = get_size(free)
-        if query.from_user.id in ADMINS:
-            await query.message.edit_text(text=script.STATUS_TXT.format(total, users, chats, monsize, free), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
-        else:
-            await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIᴛꜱ ᴏɴʟʏ ғᴏʀ ᴍʏ ADMINS\n\n©ᴍʟᴢ ʙᴏᴛᴢ", show_alert=True)
-            await query.message.edit_text(text="നോക്കി നിന്നോ ഇപ്പോൾ കിട്ടും 😏", reply_markup=reply_markup)
+        total_users = await db.total_users_count()
+        totl_chats = await db.total_chat_count()
+        tot1 = await Media2.count_documents()    
+        tot2 = await Media3.count_documents()
+        tot3 = await Media4.count_documents()
+        total = tot1 + tot2 + tot3
+        stats = await clientDB.command('dbStats')        
+        used_dbSize = (stats['dataSize']/(1024*1024))+(stats['indexSize']/(1024*1024))        
+        stats2 = await clientDB2.command('dbStats')
+        used_dbSize2 = (stats2['dataSize']/(1024*1024))+(stats2['indexSize']/(1024*1024))
+        stats3 = await clientDB3.command('dbStats')
+        used_dbSize3 = (stats3['dataSize']/(1024*1024))+(stats3['indexSize']/(1024*1024))  
+        stats4 = await clientDB4.command('dbStats')
+        used_dbSize4 = (stats4['dataSize']/(1024*1024))+(stats4['indexSize']/(1024*1024))             
+        await query.message.edit_text(text=script.STATUS_TXT.format(total, tot1, round(used_dbSize2, 2), tot2, round(used_dbSize3, 2), tot3, round(used_dbSize4, 2), total_users, totl_chats, round(used_dbSize, 2)), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
+        
     elif query.data == "rfrsh":
         await query.answer("𝙁𝙚𝙩𝙘𝙝𝙞𝙣𝙜 𝙈𝙤𝙣𝙜𝙤𝘿𝙗 𝘿𝙖𝙩𝙖𝘽𝙖𝙨𝙚")
         buttons = [[
@@ -956,18 +984,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         reply_markup = InlineKeyboardMarkup(buttons)
-        total = await Media.count_documents()
-        users = await db.total_users_count()
-        chats = await db.total_chat_count()
-        monsize = await db.get_db_size()
-        free = 536870912 - monsize
-        monsize = get_size(monsize)
-        free = get_size(free)
-        if query.from_user.id in ADMINS:
-            await query.message.edit_text(text=script.STATUS_TXT.format(total, users, chats, monsize, free), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
-        else:
-            await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIᴛꜱ ᴏɴʟʏ ғᴏʀ ᴍʏ ADMINS\n\n©ᴍʟᴢ ʙᴏᴛᴢ", show_alert=True)
-            await query.message.edit_text(text="umfi അല്ലെ 😂 എത്ര നോക്കി നിന്നാലും നിനക്ക് കാണാൻ പറ്റില്ല 😎", reply_markup=reply_markup)
+        total_users = await db.total_users_count()
+        totl_chats = await db.total_chat_count()
+        tot1 = await Media2.count_documents()    
+        tot2 = await Media3.count_documents()
+        tot3 = await Media4.count_documents()
+        total = tot1 + tot2 + tot3
+        stats = await clientDB.command('dbStats')        
+        used_dbSize = (stats['dataSize']/(1024*1024))+(stats['indexSize']/(1024*1024))        
+        stats2 = await clientDB2.command('dbStats')
+        used_dbSize2 = (stats2['dataSize']/(1024*1024))+(stats2['indexSize']/(1024*1024))
+        stats3 = await clientDB3.command('dbStats')
+        used_dbSize3 = (stats3['dataSize']/(1024*1024))+(stats3['indexSize']/(1024*1024))  
+        stats4 = await clientDB4.command('dbStats')
+        used_dbSize4 = (stats4['dataSize']/(1024*1024))+(stats4['indexSize']/(1024*1024))      
+        await query.message.edit_text(text=script.STATUS_TXT.format(total, tot1, round(used_dbSize2, 2), tot2, round(used_dbSize3, 2), tot3, round(used_dbSize4, 2), total_users, totl_chats, round(used_dbSize, 2)), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
+        
     elif query.data == "supporte":
         btn = [[
                 InlineKeyboardButton("Gʀᴏᴜᴘ 1️⃣", url='https://t.me/cinema_kottaka_group'),
