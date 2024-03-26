@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
 from database.users_chats_db import db, db2
-from database.ia_filterdb import Media
+from database.ia_filterdb import db as clientDB, db2 as clientDB2, db3 as clientDB3, db4 as clientDB4, Media2, Media3, Media4
 from utils import get_size, temp, get_settings
 from Script import script
 from pyrogram.errors import ChatAdminRequired
@@ -145,17 +145,19 @@ async def get_ststs(bot, message):
     rju = await message.reply('Fetching stats..')
     total_users = await db.total_users_count()
     totl_chats = await db.total_chat_count()
-    files = await Media.count_documents()
-    size = await db.get_db_size()
-    size2 = await db2.get_db2_size()
-    free = 536870912 - size
-    free2 = 536870912 - size2
-    size = get_size(size)
-    size2 = get_size(size2)
-    free = get_size(free)
-    free2 = get_size(free2)
-    await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free, size2, free2))
-
+    tot1 = await Media2.count_documents()    
+    tot2 = await Media3.count_documents()
+    tot3 = await Media4.count_documents()
+    total = tot1 + tot2 + tot3
+    stats = await clientDB.command('dbStats')        
+    used_dbSize = (stats['dataSize']/(1024*1024))+(stats['indexSize']/(1024*1024))        
+    stats2 = await clientDB2.command('dbStats')
+    used_dbSize2 = (stats2['dataSize']/(1024*1024))+(stats2['indexSize']/(1024*1024))
+    stats3 = await clientDB3.command('dbStats')
+    used_dbSize3 = (stats3['dataSize']/(1024*1024))+(stats3['indexSize']/(1024*1024))  
+    stats4 = await clientDB4.command('dbStats')
+    used_dbSize4 = (stats4['dataSize']/(1024*1024))+(stats4['indexSize']/(1024*1024))  
+    await rju.edit(script.STATUS_TXT.format(total, tot1, round(used_dbSize2, 2), tot2, round(used_dbSize3, 2), tot3, round(used_dbSize4, 2), total_users, totl_chats, round(used_dbSize, 2)))
 
 # a function for trespassing into others groups, Inspired by a Vazha
 # Not to be used , But Just to showcase his vazhatharam.
