@@ -7,7 +7,7 @@ from pymongo.errors import DuplicateKeyError
 from umongo import Instance, Document, fields
 from motor.motor_asyncio import AsyncIOMotorClient
 from marshmallow.exceptions import ValidationError
-from info import DATABASE_URI2, DATABASE_URI, DATABASE_URI3, DATABASE_URI4, DATABASE_NAME2, COLLECTION_NAME, MAX_B_TN, USE_CAPTION_FILTER
+from info import DATABASE_URI2, DATABASE_URI, DATABASE_URI3, DATABASE_URI4, DATABASE_NAME, COLLECTION_NAME, MAX_B_TN, USE_CAPTION_FILTER
 from utils import get_settings, save_group_settings
 
 logger = logging.getLogger(__name__)
