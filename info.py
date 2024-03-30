@@ -37,11 +37,11 @@ support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1001693527538')
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://nairobi:nairobi@cluster0.r1tusrg.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://leousers:leousers@cluster0.oi8bp2e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "chokli:chokli")
 DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://leoautofilter:leoautofilter@cluster0.ifd4au5.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_URI3 = environ.get('DATABASE_URI3', "")
-DATABASE_URI4 = environ.get('DATABASE_URI4', "")
+DATABASE_URI3 = environ.get('DATABASE_URI3', "mongodb+srv://leoautofilterdb1:leoautofilterdb1@cluster0.6jye0uc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_URI4 = environ.get('DATABASE_URI4', "mongodb+srv://leoautofilterdb2:leoautofilterdb2@cluster0.gl8vrn1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # FSUB
