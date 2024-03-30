@@ -267,7 +267,7 @@ async def delete_files_below_threshold(db, threshold_size_mb: int = 40, batch_si
     return deleted_count
 
     
-async def get_search_results(chat_id, query, file_type=None, max_results=10, offset=0, filter=False):
+async def get_search_results(chat_id, query, file_type=None, max_results=8, offset=0, filter=False):
     """For given query return (results, next_offset)"""
 
     query = query.strip()
