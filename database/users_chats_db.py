@@ -1,6 +1,6 @@
 # https://github.com/odysseusmax/animated-lamp/blob/master/bot/database/database.py
 import motor.motor_asyncio
-from info import DATABASE_NAME, DATABASE_URI, DATABASE_NAME2, DATABASE_URI2, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, MAX_BTN, AUTO_DELETE, AUTO_FFILTER
+from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, MAX_BTN, AUTO_DELETE, AUTO_FFILTER
 
 class Database:
     
@@ -147,16 +147,3 @@ class Database:
 
 
 db = Database(DATABASE_URI, DATABASE_NAME)
-
-class Database2:
-
-    def __init__(self, uri, database_name):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
-        self.db2 = self._client[database_name] 
-        self.col2 = self.db2.users
-
-    async def get_db2_size(self):
-        return (await self.db2.command("dbstats"))['dataSize']
-
-
-db2 = Database2(DATABASE_URI2, DATABASE_NAME2)
