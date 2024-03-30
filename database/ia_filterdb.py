@@ -306,11 +306,11 @@ async def get_search_results(chat_id, query, file_type=None, max_results=10, off
     files_media2 = await cursor_media2.to_list(length=35)
     files_media3 = await cursor_media3.to_list(length=35)
    
-    total_results = len(files_media1) + len(files_media2) + len(files_media3) + len(files_media4)
+    total_results = len(files_media1) + len(files_media2) + len(files_media3)
     # Interleave files from both collections based on the offset
     interleaved_files = []
     index_media1 = index_media2 = index_media3 = 0
-    while index_media1 < len(files_media1) or index_media2 < len(files_media2) or index_media3 < len(files_media3) or index_media4 < len(files_media4):
+    while index_media1 < len(files_media1) or index_media2 < len(files_media2) or index_media3 < len(files_media3):
         if index_media1 < len(files_media1):
             interleaved_files.append(files_media1[index_media1])
             index_media1 += 1
