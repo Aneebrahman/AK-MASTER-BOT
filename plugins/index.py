@@ -411,7 +411,7 @@ async def index_files_to_db2(lst_msg_id, chat, msg, bot):
         else:
             await msg.edit(f'Succesfully saved <code>{total_files}</code> to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>')
 
-async def index_files_to_db2(lst_msg_id, chat, msg, bot):
+async def index_files_to_db3(lst_msg_id, chat, msg, bot):
     total_files = 0
     duplicate = 0
     errors = 0
