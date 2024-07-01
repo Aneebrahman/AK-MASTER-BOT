@@ -35,10 +35,10 @@ async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
-                InlineKeyboardButton('🤖 𝚄𝚙𝚍𝚊𝚝𝚎𝚜', url='https://t.me/sources_cods')
+                InlineKeyboardButton('🤖 𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/cine_rockers_official')
             ],
             [
-                InlineKeyboardButton('ℹ️ 𝙷𝚎𝚕𝚙', url=f"https://t.me/{temp.U_NAME}?start=help"),
+                InlineKeyboardButton('ℹ️ 𝙷𝙴𝙻𝙿', url=f"https://t.me/{temp.U_NAME}?start=help"),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -54,15 +54,15 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('➕️ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕️ 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🔍sᴇᴀʀᴄʜ', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🔖 Sᴜᴘᴘᴏʀᴛ 🔖', callback_data='supporte')
+            InlineKeyboardButton('🔍 𝚂𝙴𝙰𝚁𝙲𝙷', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('🔖 𝚂𝚄𝙿𝙿𝙾𝚁𝚃 🔖', callback_data='supporte')
             ],[
-            InlineKeyboardButton('⚙️ Exᴛʀᴀ ⚙️', callback_data='help'),
-            InlineKeyboardButton('🎗Aʙᴏᴜᴛ🎗', callback_data='about')
+            InlineKeyboardButton('⚙️ 𝙴𝚇𝚃𝚁𝙰 ⚙️', callback_data='help'),
+            InlineKeyboardButton('🎗 𝙰𝙱𝙾𝚄𝚃 🎗', callback_data='about')
             ],[
-            InlineKeyboardButton('✖️ ᴄʟᴏꜱᴇ ✖️', callback_data='close_data')
+            InlineKeyboardButton('✖️ 𝙲𝙻𝙾𝚂𝙴 ✖️', callback_data='close_data')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -78,15 +78,15 @@ async def start(client, message):
             await ForceSub(client, message)
             return        
         buttons = [[
-            InlineKeyboardButton('🎈 𝙰𝚍𝚍 𝙼𝚎 𝚃𝚘 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙𝚜 🎈', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕️ 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🔍sᴇᴀʀᴄʜ', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🔖 Sᴜᴘᴘᴏʀᴛ 🔖', callback_data='supporte')
+            InlineKeyboardButton('🔍 𝚂𝙴𝙰𝚁𝙲𝙷', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('🔖 𝚂𝚄𝙿𝙿𝙾𝚁𝚃 🔖', callback_data='supporte')
             ],[
-            InlineKeyboardButton('⚙️Exᴛʀᴀ⚙️', callback_data='help'),
-            InlineKeyboardButton('🎗Aʙᴏᴜᴛ🎗', callback_data='about')
+            InlineKeyboardButton('⚙️ 𝙴𝚇𝚃𝚁𝙰 ⚙️', callback_data='help'),
+            InlineKeyboardButton('🎗 𝙰𝙱𝙾𝚄𝚃 🎗', callback_data='about')
             ],[
-            InlineKeyboardButton('✖️ ᴄʟᴏꜱᴇ ✖️', callback_data='close_data')
+            InlineKeyboardButton('✖️ 𝙲𝙻𝙾𝚂𝙴 ✖️', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
