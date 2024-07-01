@@ -8,7 +8,7 @@ class script(object):
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
     
     ABOUT_TXT = """<b>✯ Mʏ Nᴀᴍᴇ: {}
-✯ Cʀᴇᴀᴛᴏʀ: <a href='https://t.me/MLZ_BOTZ>MLZ_BOTZ</a>
+✯ Cʀᴇᴀᴛᴏʀ: <a href='https://t.me/psycho_009>𝗔𝗞 𝗦𝗘𝗥 ℡ ️️ᯤ̸</a>
 ✯ Lɪʙʀᴀʀʏ: <a href='https://docs.pyrogram.org/'>Pʏʀᴏɢʀᴀᴍ</a>
 ✯ Lᴀɴɢᴜᴀɢᴇ: <a href='https://www.python.org/download/releases/3.0/'>Pʏᴛʜᴏɴ 3</a>
 ✯ DᴀᴛᴀBᴀsᴇ: <a href='https://www.mongodb.com/'>MᴏɴɢᴏDB</a>
@@ -39,9 +39,9 @@ Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
     OWNER_INFO = """
 <b>⍟───[ ᴏᴡɴᴇʀ ᴅᴇᴛᴀɪʟꜱ ]───⍟
     
-• ꜰᴜʟʟ ɴᴀᴍᴇ : AS SER
-• ᴜꜱᴇʀɴᴀᴍᴇ : @TGsIRFAN
-• ᴘᴇʀᴍᴀɴᴇɴᴛ ᴅᴍ ʟɪɴᴋ : <a href='t.me/TGsirfan'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>"""
+• ꜰᴜʟʟ ɴᴀᴍᴇ : 𝗔𝗞 𝗦𝗘𝗥 ℡ ️️ᯤ̸
+• ᴜꜱᴇʀɴᴀᴍᴇ : @psycho_009
+• ᴘᴇʀᴍᴀɴᴇɴᴛ ᴅᴍ ʟɪɴᴋ : <a href='t.me/psycho_009'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>"""
 
     BUTTON_TXT = """Help: <b>Buttons</b>
 
