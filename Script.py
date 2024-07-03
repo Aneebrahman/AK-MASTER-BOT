@@ -1,8 +1,10 @@
 class script(object):
-    START_TXT = """ʜᴇʏ,  {}
+    START_TXT = """<b>ʜᴇʏ,  {}
     
-ɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ + ᴍᴀɴᴜᴀʟꜰɪʟᴛᴇʀ ʙᴏᴛ.
-ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪ ᴡɪʟʟ ɢɪᴠᴇ ᴍᴏᴠɪᴇs ᴏʀ sᴇʀɪᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ!!"""
+    𝖨'𝗆 𝖯𝗈𝗐𝖾𝗋𝖿𝗎𝗅 𝖠𝗎𝗍𝗈-𝖥𝗂𝗅𝗍𝖾𝗋 𝖡𝗈𝗍 𝖸𝗈𝗎 𝖢𝖺𝗇 𝖴𝗌𝖾 𝖬𝖾 𝖠𝗌 𝖠 𝖠𝗎𝗍𝗈-𝖿𝗂𝗅𝗍𝖾𝗋 𝗂𝗇 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉
+
+𝖨𝗍𝗌 𝖤𝖺𝗌𝗒 𝖳𝗈 𝖴𝗌𝖾 𝖬𝖾; 𝖩𝗎𝗌𝗍 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 𝖠𝗌 𝖠𝖽𝗆𝗂𝗇, 
+𝖳𝗁𝖺𝗍𝗌 𝖠𝗅𝗅, 𝗂 𝗐𝗂𝗅𝗅 𝖯𝗋𝗈𝗏𝗂𝖽𝖾 𝖬𝗈𝗏𝗂𝖾𝗌 𝖳𝗁𝖾𝗋𝖾...</b>"""
     
     HELP_TXT = """<b>Hᴇʏ {}
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
@@ -15,7 +17,7 @@ Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
 ✯ Bᴏᴛ Sᴇʀᴠᴇʀ: VPS
 ✯ Bᴜɪʟᴅ Sᴛᴀᴛᴜs: [ Sᴛᴀʙʟᴇ ]</b>"""
     
-    CAPTION = """<b>{file_caption}</b>"""
+    CAPTION = """<b><code>{file_caption}</code>\n<b>•────•────────•────•<\b>\n\n🍿 Gʀᴏᴜᴩ : <a href=https://t.me/CR_movie_group>Cʟɪᴄᴋ Hᴇʀᴇ</a>\n🍿 Gʀᴏᴜᴩ : <a href=https://t.me/Mallu_moviesgroupTg>Cʟɪᴄᴋ Hᴇʀᴇ</a>\n📢 Uᴩᴅᴀᴛᴇꜱ : <a href=https://t.me/cine_rockers_official>Cʟɪᴄᴋ Hᴇʀᴇ</a>\n<b>•────•────────•────•<\b>\n\n🎗 ʝσιи • ѕнαяє • ѕυρρσят 🎗")</b>"""
 
     SUPPORT_TXT = """ Sᴜᴘᴘᴏʀᴛ & Uᴘᴅᴀᴛᴇꜱ 💥"""
     
@@ -108,21 +110,21 @@ This module only works for my admins
     STATUS_TXT = """📂 Tᴏᴛᴀʟ Fɪʟᴇꜱ: <code>{}</code>
 
 𝗗𝗕 𝟭
-𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌         - <code>{}</code>
-𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB
+📂 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌         - <code>{}</code>
+🗃️ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB
 
 𝗗𝗕 𝟮
-𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌         - <code>{}</code>
-𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB
+📂 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌         - <code>{}</code>
+🗃️ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB
 
 𝗗𝗕 𝟯
-𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌         - <code>{}</code>
-𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB
+📂 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌         - <code>{}</code>
+🗃️ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB
 
 𝗗𝗕 𝟰
-📦 𝖴𝗌𝖾𝗋𝗌            - <code>{}</code>
+👤 𝖴𝗌𝖾𝗋𝗌            - <code>{}</code>
 🖥️ 𝖢𝗁𝖺𝗍𝗌            - <code>{}</code>
-𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB"""
+🗃️ 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾   - <code>{}</code>MB"""
     
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
