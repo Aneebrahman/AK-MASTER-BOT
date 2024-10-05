@@ -1,5 +1,5 @@
 git+https://github.com/Joelkb/cinemagoer
-pyrofork
+pyrofork==2.2.11
 tgcrypto
 pymongo[srv]==4.3.2
 motor==3.0.0
