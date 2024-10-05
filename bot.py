@@ -11,7 +11,7 @@ import os
 import sys
 from os import environ
 
-from pyrogram import Client, __version__
+from pyrogram import Client, __version__, utils as pyroutils
 from pyrogram.raw.all import layer
 from database.users_chats_db import db
 
@@ -28,6 +28,9 @@ import pytz
 from aiohttp import web
 from plugins import web_server
 PORT = environ.get("PORT", "8080")
+
+pyroutils.MIN_CHAT_ID = -999999999999
+pyroutils.MIN_CHANNEL_ID = -100999999999999
 
 class Bot(Client):
 
